@@ -65,7 +65,7 @@ cd Project 10.1 - To-Do List
 4. **Start the Application:**
 
 ```bash
-  npm App.js
+  node App.js
 ```
 
 1. **Open in Browser:**
