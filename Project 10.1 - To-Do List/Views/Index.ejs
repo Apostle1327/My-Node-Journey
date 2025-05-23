@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  </head>
+
+  <body data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+      <div class="container">
+        <a class="navbar-brand" href="/">To-Do App</a>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <form action="/add" method="POST" class="input-group mb-3">
+            <input
+              type="text"
+              name="title"
+              class="form-control"
+              placeholder="New task…"
+              required
+            />
+            <button class="btn btn-success">Add</button>
+          </form>
+
+          <ul class="list-group">
+            <% if (tasks.length === 0) { %>
+              <li class="list-group-item text-center text-muted">No tasks yet!</li>
+            <% } %>
+            <% tasks.forEach(task => { %>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <form action="/toggle/<%= task._id %>" method="POST" class="me-3">
+                  <button
+                    class="btn btn-sm <%= task.done ? 'btn-outline-warning' : 'btn-outline-primary' %>"
+                  >
+                    <%= task.done ? '↺' : '✓' %>
+                  </button>
+                </form>
+                <span
+                  class="<%= task.done ? 'text-success text-decoration-line-through' : '' %>"
+                >
+                  <%= task.title %>
+                </span>
+                <div>
+                  <a href="/edit/<%= task._id %>" class="btn btn-sm btn-outline-info">✎</a>
+                  <form action="/delete/<%= task._id %>" method="POST" style="display: inline">
+                    <button class="btn btn-sm btn-outline-danger">✕</button>
+                  </form>
+                </div>
+              </li>
+            <% }) %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

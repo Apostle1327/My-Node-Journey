@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Edit Task</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  </head>
+
+  <body data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+      <div class="container">
+        <a class="navbar-brand" href="/">To-Do App</a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="card shadow" style="max-width: 600px; margin: 50px auto">
+        <div class="card-body">
+          <h3 class="card-title text-center mb-4">Edit Task</h3>
+
+          <form action="/edit/<%= task._id %>" method="POST">
+            <div class="mb-3">
+              <label for="title" class="form-label">Task Title</label>
+
+              <input
+                type="text"
+                id="title"
+                name="title"
+                value="<%= task.title %>"
+                class="form-control"
+                required
+              />
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">Update Task</button>
+            </div>
+          </form>
+
+          <div class="d-grid mt-3">
+            <a href="/" class="btn btn-secondary">Cancel</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
