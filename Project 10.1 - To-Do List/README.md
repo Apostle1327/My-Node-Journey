@@ -103,7 +103,7 @@ cd Project 10.1 - To-Do List
   Database for storing tasks, with Mongoose for schema modeling.
 - **EJS:**
   Templating engine for dynamic HTML rendering.
-- ** Bootstrap:**
+- **Bootstrap:**
   Styling and responsive design.
 
 ## 📜 License
