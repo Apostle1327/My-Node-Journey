@@ -46,13 +46,13 @@ A simple and interactive to-do list application built with Node.js, Express, EJS
 1. **Clone the Repository:**
 
 ```bash
-
+https://github.com/Apostle1327/My-Node-Journey/tree/master/Project%2010.1%20-%20To-Do%20List
 ```
 
 2. **Navigate to the Project Directory:**
 
 ```bash
-
+cd Project 10.1 - To-Do List
 ```
 
 3. **Install Dependencies:**
