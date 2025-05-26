@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Dog Api Task (Terraformed with node.Js)</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+  </head>
+
+  <body data-bs-theme="dark">
+    <div
+      class="container vh-100 d-flex justify-content-center align-items-center"
+    >
+      <div class="card" style="width: 20rem">
+        <div id="img-container">
+          <img
+            src=""
+            class="card-img-top img-fluid px-3 pt-3"
+            alt="Image of Breed shown via API"
+            id="dog-image"
+          />
+        </div>
+
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title mb-2" id="breed-title"></h5>
+
+          <select
+            name="dogBreed-selector"
+            class="form-select mb-2"
+            id="breed-selector"
+          >
+            <option value="Select A breed" disabled selected>
+              Select A breed
+            </option>
+          </select>
+
+          <button type="button" class="btn btn-danger" id="image-fetch">
+            Show Image
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const button = document.querySelector("#image-fetch");
+      const breedSelector = document.querySelector("#breed-selector");
+      const img = document.querySelector("#dog-image");
+
+      fetch("https://dog.ceo/api/breeds/list/all")
+        .then((response) => response.json())
+        .then((data) => {
+          const breeds = data.message;
+          for (const breed in breeds) {
+            const breedOption = document.createElement("option");
+            breedOption.value = breed;
+            breedOption.textContent = breed;
+            breedSelector.appendChild(breedOption);
+
+            if (breeds[breed].length >= 1) {
+              breeds[breed].forEach((subBreed) => {
+                const subBreedOption = document.createElement("option");
+                subBreedOption.value = `${breed}/${subBreed}`;
+                subBreedOption.textContent = `${breed} ${subBreed}`;
+                breedSelector.appendChild(subBreedOption);
+              });
+            }
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching the data!", error);
+          alert("Failed to load breeds. Please refresh the page.");
+        });
+
+      button.addEventListener("click", () => {
+        const selectedBreed = breedSelector.value;
+        if (selectedBreed) {
+          fetch(`https://dog.ceo/api/breed/${selectedBreed}/images/random`)
+            .then((response) => response.json())
+            .then((data) => {
+              displayImage(data.message);
+            })
+            .catch((error) => {
+              console.error("Error Fetching the Data!", error);
+              displayImage(null);
+            });
+        } else {
+          alert("Please select a breed!");
+        }
+      });
+
+      function displayImage(imageUrl) {
+        if (imageUrl) {
+          img.src = imageUrl;
+          img.alt = "Dog image";
+        } else {
+          img.alt = "Failed to load image. Try again.";
+        }
+      }
+    </script>
+  </body>
+</html>
