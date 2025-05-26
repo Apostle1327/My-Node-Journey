@@ -37,13 +37,13 @@ An interactive web application built with Node.js, Express, EJS, and the Dog API
 1. **Clone the Repository:**
 
 ```bash
-
+https://github.com/Apostle1327/My-Node-Journey/tree/master/Project%2012.1%20-%20Convert%20HTML%20to%20Node.Js
 ```
 
 2. **Navigate to the Project Directory:**
 
 ```bash
-cd
+cd Project 12.1 - Convert HTML to Node.Js
 ```
 
 3. **Install Dependencies:**
@@ -75,9 +75,9 @@ cd
 
 # 📷 Screenshots
 
-<img width="330" alt="Convert HTML to Node.Js - 1" src="/Images/Convert HTML to Node.Js - 1.png">
-<img width="330" alt="Convert HTML to Node.Js - 2" src="/Images/Convert HTML to Node.Js - 2.png">
-<img width="330" alt="Convert HTML to Node.Js - 3" src="/Images/Convert HTML to Node.Js - 3.png">
+<img width="330" alt="Convert HTML to Node.Js - 1" src="./Images/Convert HTML to Node.Js - 1.png">
+<img width="330" alt="Convert HTML to Node.Js - 2" src="./Images/Convert HTML to Node.Js - 2.png">
+<img width="330" alt="Convert HTML to Node.Js - 3" src="./Images/Convert HTML to Node.Js - 3.png">
 
 ## 🛠️ Technologies Used
 
