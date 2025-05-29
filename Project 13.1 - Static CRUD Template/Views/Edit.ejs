@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Static CRUD Template</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+  </head>
+
+  <body style="background-color: #989797">
+    <h2 class="display-3 text-primary text-center">Edit User</h2>
+
+    <div class="container">
+      <form
+        action="/edit/<%= user._id %>"
+        method="post"
+        class="d-flex justify-content-center align-items-center"
+      >
+        <div
+          id="edit-container"
+          style="
+            background-color: #e8e8e8;
+            border: 1px solid white;
+            border-radius: 30px;
+            padding: 20px 25px;
+            width: 500px;
+          "
+        >
+          <div class="d-flex justify-content-between">
+            <div class="form-floating">
+              <input
+                type="text"
+                name="firstName"
+                class="form-control"
+                id="floatingFirstName"
+                placeholder="First Name"
+                value="<%= user.firstName %>"
+                style="
+                  background: transparent;
+                  border: 2px solid #c3c3c3;
+                  width: 210px;
+                "
+                required
+              />
+              <label for="floatingFirstName">First Name</label>
+            </div>
+
+            <div class="form-floating">
+              <input
+                type="text"
+                name="lastName"
+                class="form-control"
+                id="floatingLastName"
+                placeholder="Last Name"
+                value="<%= user.lastName %>"
+                style="
+                  background: transparent;
+                  border: 2px solid #c3c3c3;
+                  width: 210px;
+                "
+                required
+              />
+              <label for="floatingLastName">Last Name</label>
+            </div>
+          </div>
+
+          <div class="form-floating mt-3">
+            <input
+              type="email"
+              name="eMail"
+              class="form-control"
+              id="floatingEmail"
+              placeholder="Email"
+              value="<%= user.eMail %>"
+              style="background: transparent; border: 2px solid #c3c3c3"
+              required
+            />
+            <label for="floatingEmail">Email</label>
+          </div>
+
+          <div class="form-floating mt-3">
+            <input
+              type="number"
+              name="age"
+              class="form-control"
+              id="floatingAge"
+              placeholder="Age"
+              value="<%= user.age %>"
+              style="background: transparent; border: 2px solid #c3c3c3"
+              required
+            />
+            <label for="floatingAge">Age</label>
+          </div>
+
+          <div
+            class="rounded-3 mt-3 p-2"
+            style="border: 2px solid #c3c3c3; background: transparent"
+          >
+            <label for="gender">Choose Your Gender:</label>
+            <div class="form-check d-flex justify-content-center pe-5">
+              <input type="radio" name="gender" id="male" value="Male"
+              class="form-check-input ms-3" <%= user.gender === "Male" ?
+              "checked" : "" %> />
+              <label for="male" class="ms-1">Male</label>
+              <input type="radio" name="gender" id="female" value="Female"
+              class="form-check-input ms-3" <%= user.gender === "Female" ?
+              "checked" : "" %> />
+              <label for="female" class="ms-1">Female</label>
+            </div>
+          </div>
+
+          <div
+            class="rounded-3 mt-3 p-2"
+            style="border: 2px solid #c3c3c3; background: transparent"
+          >
+            <label for="hobbies">Select Your Hobbies:</label>
+            <div class="form-check d-flex justify-content-center mt-2">
+              <input type="checkbox" name="hobbies[]" id="coding" value="Coding"
+              class="form-check-input ms-2" <%= user.hobbies.includes("Coding")
+              ? "checked" : "" %> />
+              <label for="coding" class="ms-1">Coding</label>
+              <input type="checkbox" name="hobbies[]" id="reading"
+              value="Reading" class="form-check-input ms-2" <%=
+              user.hobbies.includes("Reading") ? "checked" : "" %> />
+              <label for="reading" class="ms-1">Reading</label>
+              <input type="checkbox" name="hobbies[]" id="music" value="Music"
+              class="form-check-input ms-2" <%= user.hobbies.includes("Music") ?
+              "checked" : "" %> />
+              <label for="music" class="ms-1">Music</label>
+            </div>
+          </div>
+
+          <div
+            class="rounded-3 mt-3 p-2"
+            style="border: 2px solid #c3c3c3; background: transparent"
+          >
+            <select class="form-select" name="city" required>
+              <option value="" disabled>-- Select City --</option>
+              <option value="austin"   <%= user.city==="austin"   ? "selected" : "" %>>Austin</option>
+              <option value="brooklyn" <%= user.city==="brooklyn" ? "selected" : "" %>>Brooklyn</option>
+              <option value="chicago"  <%= user.city==="chicago"  ? "selected" : "" %>>Chicago</option>
+              <option value="denver"   <%= user.city==="denver"   ? "selected" : "" %>>Denver</option>
+            </select>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary w-75 mx-auto mt-3 d-block rounded-pill"
+          >
+            Update
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script src="/js/bootstrap.bundle.js"></script>
+  </body>
+</html>
