@@ -16,20 +16,20 @@ An interactive web application for managing personal budgets and daily expenses,
 ## 📂 Project Folder Structure
 
 ```jsx
-├── database/                # Database configuration and initialization
+├── database/                // Database configuration and initialization
 │   └── budgetKeeper-Database.js
-├── images/                  # Image assets
-├── models/                  # Data models for the application
+├── images/                  // Image assets
+├── models/                  // Data models for the application
 │   ├── budgetKeeper-Model.js
 │   └── dailyExpenses-Model.js
-├── node_modules/            # Project dependencies (auto-generated)
-├── views/                   # View templates
+├── node_modules/            // Project dependencies (auto-generated)
+├── views/                   // View templates
 │   └── index.ejs
-├── .gitignore               # Files and directories to be ignored by Git
-├── App.js                   # Main application entry point
-├── package-lock.json        # Dependency tree lock file
-├── package.json             # Project metadata and dependencies
-└── README.md                # Project documentation
+├── .gitignore               // Files and directories to be ignored by Git
+├── App.js                   // Main application entry point
+├── package-lock.json        // Dependency tree lock file
+├── package.json             // Project metadata and dependencies
+└── README.md                // Project documentation
 ```
 
 ## 🏗️ How to Use
