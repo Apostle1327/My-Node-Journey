@@ -37,13 +37,13 @@ An interactive web application for managing personal budgets and daily expenses,
 1. **Clone the Repository:**
 
 ```bash
-
+https://github.com/Apostle1327/My-Node-Journey/tree/master/Project%2017.1%20-%20Budget%20Keeper%20App
 ```
 
 2. **Navigate to the Project Directory:**
 
 ```bash
-
+cd Project 17.1 - Budget Keeper App
 ```
 
 3. **Install Dependencies:**
