@@ -103,4 +103,4 @@ cd Project 17.1 - Budget Keeper App
 ## 📜 License
 
 This project is licensed under the MIT License.
-Feel free to fork!
+Feel free to fork, modify, and distribute!
