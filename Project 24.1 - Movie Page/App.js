@@ -4,6 +4,9 @@ const port = process.env.PORT || 8002;
 
 const app = express();
 
+const db = require("./databases/moviePage-Database");
+const movieModel = require("./models/moviePage-Model");
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
@@ -13,18 +16,12 @@ app.use(
 );
 app.use(
   "/js",
-  express.static(path.join(__dirname, "node_modules/bootstrap.dist/js"))
+  express.static(path.join(__dirname, "node_modules/bootstrap/dist/js"))
 );
+app.use("/imageUploads", express.static(path.join(__dirname, "imageUploads")));
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  try {
-    return res.render("index");
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Server Error!");
-  }
-});
+app.use("/", require("./routes/moviePage.routes"));
 
 app.listen(port, (err) => {
   err

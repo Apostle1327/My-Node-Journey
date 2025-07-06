@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= movie.movieName %></title>
+
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      body {
+        background: linear-gradient(135deg, #1a1a1f, #222);
+        color: #f8f9fa;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      .navbar {
+        background-color: #121212 !important;
+      }
+
+      .btn-primary {
+        background-color: #4dabf7;
+        border-color: #4dabf7;
+      }
+
+      .btn-primary:hover {
+        background-color: #339af0;
+        border-color: #339af0;
+      }
+
+      .movie-card {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid #4dabf7;
+        border-radius: 1rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .badge-custom {
+        background-color: #4dabf7;
+        color: #000;
+      }
+
+      .text-shadow {
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+      }
+
+      .play-button {
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+
+      .blur-bg {
+        backdrop-filter: blur(5px);
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+    </style>
+  </head>
+
+  <body data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
+      <div class="container-fluid px-4">
+        <a class="navbar-brand fw-bold" href="/">🎬 Movie</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/addMoviePage">Add</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="position-relative min-vh-100 d-flex align-items-center">
+      <div
+        class="position-absolute top-0 start-0 w-100 h-100"
+        style="
+          background-image: url('<%= movie.backgroundImage %>');
+          background-size: cover;
+          background-position: center;
+          opacity: 0.15;
+          z-index: -1;
+        "
+      ></div>
+
+      <div class="container-fluid py-5">
+        <div class="row g-5 align-items-center">
+          <div class="col-md-4">
+            <div class="card movie-card overflow-hidden position-relative">
+              <img
+                src="<%= movie.moviePoster %>"
+                alt="Poster"
+                class="w-100"
+                style="height: 500px; object-fit: cover"
+              />
+
+              <div class="position-absolute top-50 start-50 translate-middle">
+                <button class="btn play-button rounded-circle p-3 shadow">
+                  <i class="fas fa-play text-dark fs-5"></i>
+                </button>
+              </div>
+
+              <div
+                class="position-absolute bottom-0 w-100 text-center py-2 blur-bg text-white small"
+              >
+                <i class="fas fa-video me-1"></i> Trailer
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-8">
+            <h1 class="display-5 fw-bold mb-3 text-shadow">
+              <%= movie.movieName %>
+            </h1>
+
+            <div class="mb-3">
+              <span class="badge badge-custom fs-6 px-3 py-2 rounded-pill">
+                <i class="ri-star-smile-line me-1"></i> <%= movie.ratings %>
+              </span>
+            </div>
+
+            <div class="mb-3">
+              <span class="badge bg-secondary me-2 px-3 py-2 rounded-pill"
+                ><%= movie.dimensions %></span
+              >
+              <span class="badge bg-secondary px-3 py-2 rounded-pill"
+                ><%= movie.language %></span
+              >
+            </div>
+
+            <div class="mb-4 fs-5">
+              <span
+                ><%= movie.hours %>h <%= movie.minutes %>m <%= movie.seconds
+                %>s</span
+              >
+              <span class="mx-3">•</span>
+              <span><%= movie.genres %></span>
+              <span class="mx-3">•</span>
+              <span><%= movie.certification %></span>
+            </div>
+
+            <div class="mb-4">
+              <p><%= movie.description %></p>
+            </div>
+
+            <button
+              class="btn btn-primary btn-lg rounded-pill px-5 py-3 shadow mt-3"
+            >
+              🎟️ Book Tickets
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
