@@ -110,8 +110,8 @@ cd Project 24.1 - Movie Page
 
 ## 👨🏼‍💻 Developer
 
-**Nevil Bharuchwala**
-(GitHub Profile)[https://github.com/Apostle1327]
+**Nevil Bharuchwala**  
+[GitHub Profile](https://github.com/Apostle1327)
 
 ## 📜 License
 
