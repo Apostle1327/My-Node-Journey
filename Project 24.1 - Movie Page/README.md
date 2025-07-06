@@ -45,13 +45,13 @@ A dynamic and visually engaging web application for showcasing movies, built wit
 1. **Clone the Repository:**
 
 ```bash
-
+https://github.com/Apostle1327/My-Node-Journey/tree/master/Project%2024.1%20-%20Movie%20Page
 ```
 
 2. **Navigate to the Project Directory:**
 
 ```bash
-cd
+cd Project 24.1 - Movie Page
 ```
 
 3. **Install Dependencies:**
